@@ -46,18 +46,124 @@ struct Node *CreateNode(int data)
 int main()
 {
     struct Node *a = NULL, *b = NULL;
+    int n, data;
 
-    a = CreateNode(1);
-    a->next = CreateNode(2);
+    // Get user input for list a
+    printf("Enter number of elements for list a: ");
+    scanf("%d", &n);
+    printf("Enter %d elements for list a:\n", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &data);
+        if (a == NULL)
+        {
+            a = CreateNode(data);
+        }
+        else
+        {
+            struct Node *temp = a;
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = CreateNode(data);
+        }
+    }
 
-    b = CreateNode(3);
-    b->next = CreateNode(4);
+    // Get user input for list b
+    printf("Enter number of elements for list b: ");
+    scanf("%d", &n);
+    printf("Enter %d elements for list b:\n", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &data);
+        if (b == NULL)
+        {
+            b = CreateNode(data);
+        }
+        else
+        {
+            struct Node *temp = b;
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = CreateNode(data);
+        }
+    }
 
+    // Append list b to list a
     Append(&a, &b);
 
+    // Print the resulting list
+    printf("Resulting list after appending: ");
     PrintList(a);
+
     return 0;
 }
+
+
+// OLD CODE
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// struct Node
+// {
+//     int data;
+//     struct Node *next;
+// };
+
+// void Append(struct Node **a, struct Node **b)
+// {
+//     if (*a == NULL)
+//     {
+//         *a = *b;
+//     }
+//     else
+//     {
+//         struct Node *temp = *a;
+//         while (temp->next != NULL)
+//         {
+//             temp = temp->next;
+//         }
+//         temp->next = *b;
+//     }
+//     *b = NULL;
+// }
+
+// void PrintList(struct Node *head)
+// {
+//     while (head != NULL)
+//     {
+//         printf("%d -> ", head->data);
+//         head = head->next;
+//     }
+//     printf("NULL\n");
+// }
+
+// struct Node *CreateNode(int data)
+// {
+//     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+//     newNode->data = data;
+//     newNode->next = NULL;
+//     return newNode;
+// }
+
+// int main()
+// {
+//     struct Node *a = NULL, *b = NULL;
+
+//     a = CreateNode(1);
+//     a->next = CreateNode(2);
+
+//     b = CreateNode(3);
+//     b->next = CreateNode(4);
+
+//     Append(&a, &b);
+
+//     PrintList(a);
+//     return 0;
+// }
 
 // C++
 // #include <iostream>
