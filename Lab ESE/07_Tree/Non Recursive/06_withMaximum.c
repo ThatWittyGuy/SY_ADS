@@ -274,3 +274,14 @@ int main()
 
     return 0;
 }
+
+
+// Original Preorder Traversal: 1 2 4 5 3 6 7        
+// Original Inorder Traversal: 4 2 5 1 6 3 7         
+// Original Postorder Traversal: 4 5 2 6 7 3 1       
+// Original Level Order Traversal: 1 2 3 4 5 6 7     
+// Mirror Image Level Order Traversal: 1 3 2 7 6 5 4 
+// Total Nodes: 7
+// Height of Tree: 3
+// Total Leaf Nodes: 4
+// Maximum Value in the Tree: 7
