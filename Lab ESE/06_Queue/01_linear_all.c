@@ -78,6 +78,23 @@ void display(struct Queue *q)
     printf("\n");
 }
 
+int search(struct Queue *q, int value)
+{
+    if (isEmpty(q))
+    {
+        printf("Queue is empty. Cannot search\n");
+        return -1;
+    }
+    for (int i = q->front; i <= q->rear; i++)
+    {
+        if (q->arr[i] == value)
+        {
+            return i; // Return the index where the value is found
+        }
+    }
+    return -1; // Return -1 if the element is not found
+}
+
 int main()
 {
     struct Queue q;
@@ -93,7 +110,8 @@ int main()
         printf("4. Display\n");
         printf("5. Check if Queue is Empty\n");
         printf("6. Check if Queue is Full\n");
-        printf("7. Exit\n");
+        printf("7. Search Element\n");
+        printf("8. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -140,6 +158,20 @@ int main()
             break;
 
         case 7:
+            printf("Enter value to search: ");
+            scanf("%d", &value);
+            int index = search(&q, value);
+            if (index != -1)
+            {
+                printf("Element %d found at position %d in the queue\n", value, index);
+            }
+            else
+            {
+                printf("Element %d not found in the queue\n", value);
+            }
+            break;
+
+        case 8:
             printf("Exiting program.\n");
             exit(0);
 
@@ -150,3 +182,158 @@ int main()
 
     return 0;
 }
+
+
+// Same but wihthout search
+// #include <stdio.h>
+// #include <stdlib.h>
+// #define MAX 5
+
+// struct Queue
+// {
+//     int front, rear;
+//     int arr[MAX];
+// };
+
+// void initializeQueue(struct Queue *q)
+// {
+//     q->front = -1;
+//     q->rear = -1;
+// }
+
+// int isFull(struct Queue *q)
+// {
+//     if (q->rear == MAX - 1)
+//         return 1;
+//     return 0;
+// }
+
+// int isEmpty(struct Queue *q)
+// {
+//     if (q->front == -1 || q->front > q->rear)
+//         return 1;
+//     return 0;
+// }
+
+// void insert(struct Queue *q, int value)
+// {
+//     if (isFull(q))
+//     {
+//         printf("Queue is full. Cannot insert %d\n", value);
+//         return;
+//     }
+//     if (q->front == -1)
+//         q->front = 0;
+//     q->rear++;
+//     q->arr[q->rear] = value;
+//     printf("%d inserted into queue\n", value);
+// }
+
+// void dequeue(struct Queue *q)
+// {
+//     if (isEmpty(q))
+//     {
+//         printf("Queue is empty. Cannot delete\n");
+//         return;
+//     }
+//     printf("%d deleted from queue\n", q->arr[q->front]);
+//     q->front++;
+// }
+
+// int peek(struct Queue *q)
+// {
+//     if (isEmpty(q))
+//     {
+//         printf("Queue is empty. Cannot peek\n");
+//         return -1;
+//     }
+//     return q->arr[q->front];
+// }
+
+// void display(struct Queue *q)
+// {
+//     if (isEmpty(q))
+//     {
+//         printf("Queue is empty\n");
+//         return;
+//     }
+//     printf("Queue elements: ");
+//     for (int i = q->front; i <= q->rear; i++)
+//     {
+//         printf("%d ", q->arr[i]);
+//     }
+//     printf("\n");
+// }
+
+// int main()
+// {
+//     struct Queue q;
+//     initializeQueue(&q);
+//     int choice, value;
+
+//     while (1)
+//     {
+//         printf("\nQueue Menu:\n");
+//         printf("1. Insert\n");
+//         printf("2. Delete\n");
+//         printf("3. Peek\n");
+//         printf("4. Display\n");
+//         printf("5. Check if Queue is Empty\n");
+//         printf("6. Check if Queue is Full\n");
+//         printf("7. Exit\n");
+//         printf("Enter your choice: ");
+//         scanf("%d", &choice);
+
+//         switch (choice)
+//         {
+//         case 1:
+//             printf("Enter value to insert: ");
+//             scanf("%d", &value);
+//             insert(&q, value);
+//             break;
+
+//         case 2:
+//             dequeue(&q);
+//             break;
+
+//         case 3:
+//             printf("Front element: %d\n", peek(&q));
+//             break;
+
+//         case 4:
+//             display(&q);
+//             break;
+
+//         case 5:
+//             if (isEmpty(&q))
+//             {
+//                 printf("Queue is empty\n");
+//             }
+//             else
+//             {
+//                 printf("Queue is not empty\n");
+//             }
+//             break;
+
+//         case 6:
+//             if (isFull(&q))
+//             {
+//                 printf("Queue is full\n");
+//             }
+//             else
+//             {
+//                 printf("Queue is not full\n");
+//             }
+//             break;
+
+//         case 7:
+//             printf("Exiting program.\n");
+//             exit(0);
+
+//         default:
+//             printf("Invalid choice. Please try again.\n");
+//         }
+//     }
+
+//     return 0;
+// }
