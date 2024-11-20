@@ -130,6 +130,16 @@ int main()
     return 0;
 }
 
+// Enter the number of vertices: 5
+// Enter the number of edges: 4
+// Enter edge (src dest): 0 1
+// Enter edge (src dest): 0 2
+// Enter edge (src dest): 1 3
+// Enter edge (src dest): 1 4
+// Enter the starting vertex for BFS and DFS: 0
+// BFS starting from vertex 0: 0 1 2 3 4
+// DFS starting from vertex 0: 0 1 3 4 2
+
 // #include <iostream>
 
 // using namespace std;

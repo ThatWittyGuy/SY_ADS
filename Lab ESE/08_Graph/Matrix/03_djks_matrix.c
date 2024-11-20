@@ -77,6 +77,22 @@ int main()
     return 0;
 }
 
+// Enter number of vertices: 5
+// Enter number of edges: 7
+// Enter the edges (src, dest, weight):
+// 0 1 10
+// 0 2 5
+// 1 2 2
+// 1 3 1
+// 2 3 9
+// 2 4 3
+// 3 4 4
+// Enter the source node: 0
+// Enter the destination node: 4
+
+// Shortest distance from node 0 to node 4 is 8
+
+
 // Vertex to Source
 // #include <stdio.h>
 // #include <limits.h>

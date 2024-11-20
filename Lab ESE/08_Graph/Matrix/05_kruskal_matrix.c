@@ -99,6 +99,20 @@ int main()
     return 0;
 }
 
+// Enter number of vertices: 4
+// Enter number of edges: 5
+// Enter the edges (src, dest, weight):
+// 0 1 10
+// 0 2 6
+// 0 3 5
+// 1 3 15
+// 2 3 4
+
+// Edges in the MST:
+// 2 - 3: 4
+// 0 - 3: 5
+// 0 - 1: 10
+
 // OLD but correct
 
 // #include <stdio.h>

@@ -70,6 +70,23 @@ int main() {
 }
 
 
+// Enter number of vertices: 5
+// Enter number of edges: 7
+// Enter the edges (src, dest, weight):
+// 0 1 2
+// 0 3 6
+// 1 3 8
+// 1 2 3
+// 2 3 7
+// 2 4 5
+// 3 4 9
+
+// 0 - 1: 2
+// 1 - 2: 3
+// 0 - 3: 6
+// 2 - 4: 5
+
+
 // #include <iostream>
 // using namespace std;
 
